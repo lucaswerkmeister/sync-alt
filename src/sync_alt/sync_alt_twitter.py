@@ -14,7 +14,9 @@ def twitter_keyer(img_tag: bs4.Tag) -> tuple[str, str]:
     assert article_tag is not None, "<img> must have parent <article>: {img_tag}"
     article_tag = cast(bs4.Tag, article_tag)  # not a NavigableString
     permalink_tag = article_tag.find("a", class_="permalink")
-    assert permalink_tag is not None, "<article> must contain <a class='permalink'>: {article_tag}"
+    assert (
+        permalink_tag is not None
+    ), "<article> must contain <a class='permalink'>: {article_tag}"
     permalink_tag = cast(bs4.Tag, permalink_tag)  # not a NavigableString
     href = permalink_tag.attrs.get("href")
     assert href is not None, f"permalink must have href= attribute: {permalink_tag}"
