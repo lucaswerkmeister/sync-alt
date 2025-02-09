@@ -127,10 +127,11 @@ def copy_directory[K: Hashable](
     shutil.copytree(src, dst, copy_function=copy)
 
 
-def main() -> None:
+def main() -> int:
     args = sys.argv[1:]
     if len(args) != 2:
         print("Usage: sync-alt SOURCE DEST", file=sys.stderr)
-        sys.exit(1)
+        return 1
     [src, dst] = args
     copy_directory(src, dst)
+    return 0

@@ -25,10 +25,11 @@ def twitter_keyer(img_tag: bs4.Tag) -> tuple[str, str]:
     return href, src
 
 
-def main() -> None:
+def main() -> int:
     args = sys.argv[1:]
     if len(args) != 2:
         print("Usage: sync-alt SOURCE DEST", file=sys.stderr)
-        sys.exit(1)
+        return 1
     [src, dst] = args
     copy_directory(src, dst, twitter_keyer)
+    return 0
