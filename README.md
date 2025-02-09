@@ -32,7 +32,7 @@ Both follow the same pattern:
 
 ```sh
 sync-alt source-directory/ target-directory/
-sync-alt-twitter path/to/twitter/backups/status path/to/twitter/backups/status-fixed
+sync-alt-twitter path/to/twitter/backups/status path/to/twitter/backups/status-synced
 ```
 
 The whole source directory is copied to the target directory;
@@ -53,7 +53,7 @@ If you’re happy with the result, go ahead and use it:
 
 ```sh
 mv path/to/twitter/backups/status path/to/twitter/backups/status-orig
-mv path/to/twitter/backups/status-fixed path/to/twitter/backups/status
+mv path/to/twitter/backups/status-synced path/to/twitter/backups/status
 ```
 
 ## License
