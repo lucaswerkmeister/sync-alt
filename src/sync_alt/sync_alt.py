@@ -3,6 +3,7 @@ import bs4
 from collections.abc import Hashable
 import os
 import shutil
+import sys
 from typing import Callable, cast, overload
 import warnings
 
@@ -127,4 +128,9 @@ def copy_directory[K: Hashable](
 
 
 def main() -> None:
-    copy_directory("/tmp/LucasWerkmeistr-status", "/tmp/LucasWerkmeistr-status-synced")
+    args = sys.argv[1:]
+    if len(args) != 2:
+        print("Usage: sync-alt SOURCE DEST", file=sys.stderr)
+        sys.exit(1)
+    [src, dst] = args
+    copy_directory(src, dst)
