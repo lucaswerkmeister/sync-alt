@@ -21,6 +21,7 @@ dev = [
 
 [project.scripts]
 sync-alt = "sync_alt.sync_alt:main"
+sync-alt-twitter = "sync_alt.sync_alt_twitter:main"
 
 [tool.mypy]
 disallow_untyped_defs = true
