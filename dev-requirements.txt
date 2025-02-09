@@ -10,6 +10,8 @@ black==25.1.0
     # via sync-alt (pyproject.toml)
 click==8.1.8
     # via black
+html5lib==1.1
+    # via sync-alt (pyproject.toml)
 mypy==1.15.0
     # via sync-alt (pyproject.toml)
 mypy-extensions==1.0.0
@@ -24,9 +26,13 @@ platformdirs==4.3.6
     # via black
 ruff==0.9.5
     # via sync-alt (pyproject.toml)
+six==1.17.0
+    # via html5lib
 soupsieve==2.6
     # via beautifulsoup4
 typing-extensions==4.12.2
     # via
     #   beautifulsoup4
     #   mypy
+webencodings==0.5.1
+    # via html5lib
