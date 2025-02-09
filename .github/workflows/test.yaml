@@ -1,0 +1,26 @@
+name: Test
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      - run: pip install --upgrade pip
+      - run: pip install -r requirements.txt -r dev-requirements.txt
+      - run: pip install -e .
+      - run: make check
+  requirements:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      - run: pip install --upgrade pip pip-tools
+      - run: make -B requirements.txt dev-requirements.txt
+      - run: git diff --exit-code
