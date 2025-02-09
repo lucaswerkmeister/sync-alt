@@ -51,7 +51,7 @@ def scan_directory[K: Hashable](
                 continue
             file_path = os.path.join(root, file)
             with open(file_path, "r") as f:
-                soup = bs4.BeautifulSoup(f, "html.parser")
+                soup = bs4.BeautifulSoup(f, "html5lib")
             for img in soup.find_all("img"):
                 img = cast(bs4.Tag, img)  # not a NavigableString
                 try:
@@ -105,7 +105,7 @@ def copy_directory[K: Hashable](
             return shutil.copy2(src, dst)
         modified = False
         with open(src, "r") as f:
-            soup = bs4.BeautifulSoup(f, "html.parser")
+            soup = bs4.BeautifulSoup(f, "html5lib")
         for img in soup.find_all("img"):
             img = cast(bs4.Tag, img)  # not a NavigableString
             if "alt" in img.attrs:

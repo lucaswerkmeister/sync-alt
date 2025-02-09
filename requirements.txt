@@ -6,7 +6,13 @@
 #
 beautifulsoup4==4.13.3
     # via sync-alt (pyproject.toml)
+html5lib==1.1
+    # via sync-alt (pyproject.toml)
+six==1.17.0
+    # via html5lib
 soupsieve==2.6
     # via beautifulsoup4
 typing-extensions==4.12.2
     # via beautifulsoup4
+webencodings==0.5.1
+    # via html5lib
